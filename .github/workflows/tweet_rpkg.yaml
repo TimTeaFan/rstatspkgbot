@@ -1,11 +1,8 @@
 name: post-tweet
 
 on:
-  #schedule:
-  #  - cron:  '*/6 * * * *'
-  push:
-    branches:
-      - main
+  schedule:
+   - cron:  '*/10 * * * *'
 jobs:
   rstatspkgbot-tweet:
     runs-on: macOS-latest
