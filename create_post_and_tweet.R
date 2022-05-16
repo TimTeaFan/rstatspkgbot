@@ -54,8 +54,20 @@ tweet_text <- paste0("\U0001f4e6", " ", pkg_sample$name, "\n",
 
 
 
+# Create a token containing your Twitter keys
+bot_token <- rtweet::create_token(
+  app = "rstatspkgbot",
+  # the name of the Twitter app
+  consumer_key = Sys.getenv("RBOT_TWITTER_CONSUMER_API_KEY"),
+  consumer_secret = Sys.getenv("RBOT_TWITTER_CONSUMER_API_SECRET"),
+  access_token = Sys.getenv("RBOT_TWITTER_ACCESS_TOKEN"),
+  access_secret = Sys.getenv("RBOT_TWITTER_ACCESS_TOKEN_SECRET"),
+  set_renv = FALSE
+)
+
 # post tweet
-post_tweet(status = tweet_text)
+post_tweet(status = tweet_text,
+           token = bot_token)
 
 # write name into tibble with already tweeted packages
 upd_pkg_already_tweeted <- bind_rows(pkgs_already_tweeted, pkg_sample[, "name"])
