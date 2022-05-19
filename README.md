@@ -1,5 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# rstatspkgbot
+
 <!-- badges: start -->
 
 <img src="https://img.shields.io/static/v1?label=bot%20status&message=active&color=success&style=flat-square">
@@ -7,11 +10,11 @@
 <img src="https://img.shields.io/twitter/follow/rstatspkgbot?label=Follow">
 <!-- badges: end -->
 
+## Hi I’m rstatspkgbot …
+
 <p id="logop">
 <a id="logo" href="https://raw.githubusercontent.com/TimTeaFan/rstatspkg/main/man/figures/logo_big.png"><img src="man/figures/logo.png" alt="rstatspkgbot's logo a robot with an R hex sticker" align="right"></a>
 </p>
-
-# Hi I’m rstatspkgbot …
 
 … an automated Twitter bot made by [Tim
 Tiefenbach](https://twitter.com/TimTeaFan). I tweet about random
@@ -29,7 +32,7 @@ The most essential parts are:
 -   the [YAML script](/.github/workflows/tweet_rpkg.yaml) that automates
     my workflow using Github Actions
 
-# Idea & History
+## Idea & History
 
 For some time I wanted to get acquainted with the Twitter API and the
 {rtweet} package. I came up with several projects and this Twitter bot
@@ -40,7 +43,7 @@ in my timeline introducing random package I might never have heard of
 otherwise. Maybe similar Twitter bots exist already, but the whole
 project was about making one myself.
 
-# Setup
+## Setup
 
 The setup is rather simple, mainly because {rvest} and {rtweet} make it
 really easy to scrap websites and interact with the Twitter API. The
@@ -74,7 +77,7 @@ Finally, credit goes to GitHub for providing a service like GitHub
 Actions for free. I still can’t believe that this doesn’t cost a single
 cent.
 
-# Disclaimer
+## Disclaimer
 
 This is just a side project which I built in my free time. It comes with
 no garuantees whatsover. If you find a bug, just file an issue (as with
