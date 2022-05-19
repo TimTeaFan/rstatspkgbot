@@ -4,6 +4,7 @@ library(dplyr)
 library(tibble)
 library(rtweet)
 
+# read-in CRAN package list
 cran_url <- "https://cran.r-project.org/web/packages/available_packages_by_name.html"
 
 cran_pkg_by_name <- read_html(cran_url)
@@ -14,7 +15,7 @@ pkg_tbl <- cran_pkg_by_name %>%
   html_table() %>%
   rename("name" = X1, "description" = X2)
 
-
+# get CRAN package links and join to tbl above
 pkg_tbl_links <- cran_pkg_by_name %>%
   html_element("body") %>%
   html_element("table") %>%
@@ -27,11 +28,16 @@ pkg_tbl_links <- cran_pkg_by_name %>%
   mutate(char_nr = nchar(link) + nchar(name) + nchar(description),
          char_nr_descr = nchar(description))
 
-# anti_join with already tweeted packages
-# pkgs_already_tweeted <- data.frame(name = "ANonExistingPackage")
-# saveRDS(pkgs_already_tweeted, "pkgs_already_tweeted.rds")
-pkgs_already_tweeted <- readRDS("pkgs_already_tweeted.rds")
 
+# for manual use: create tbl of already tweeted packages
+# pkgs_already_tweeted <- data.frame(name = c("argonDash", "radarBoxplot", "scoringUtils",
+#                                             "correctedAUC", "evir", "WindCurves"))
+# saveRDS(pkgs_already_tweeted, "data/pkgs_already_tweeted.rds")
+
+# get tbl of already tweeted pkgs
+pkgs_already_tweeted <- readRDS("data/pkgs_already_tweeted.rds")
+
+# anti_join with already tweeted packages
 pkg_draw_from <- pkg_tbl_links %>%
   anti_join(pkgs_already_tweeted, by = "name")
 
@@ -47,12 +53,10 @@ adj_description <- if (pkg_sample$char_nr > 271) {
   pkg_sample$description
   }
 
-# create text
+# create text using emojis
 tweet_text <- paste0("\U0001f4e6", " ", pkg_sample$name, "\n",
                      "\U0001f4dd", " ", adj_description, "\n\n",
                      "\U0001f517", " ", pkg_sample$link)
-
-
 
 # Create a token containing your Twitter keys
 bot_token <- rtweet::create_token(
@@ -71,4 +75,4 @@ post_tweet(status = tweet_text,
 
 # write name into tibble with already tweeted packages
 upd_pkg_already_tweeted <- bind_rows(pkgs_already_tweeted, pkg_sample[, "name"])
-saveRDS(upd_pkg_already_tweeted, "pkgs_already_tweeted.rds")
+saveRDS(upd_pkg_already_tweeted, "data/pkgs_already_tweeted.rds")
