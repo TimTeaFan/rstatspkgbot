@@ -14,7 +14,7 @@ Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%
 
 ## Hi I’m rstatspkgbot …
 
-<a id="logo" href="https://raw.githubusercontent.com/TimTeaFan/rstatspkg/main/man/figures/logo_big.png"><img src="man/figures/logo.png" alt="rstatspkgbot's logo a robot with an R hex sticker" align="right"></a>
+<a id="logo" href="https://raw.githubusercontent.com/TimTeaFan/rstatspkgbot/main/man/figures/logo_big.png"><img src="man/figures/logo.png" alt="rstatspkgbot's logo a robot with an R hex sticker" align="right"></a>
 
 … an automated Twitter bot made by [Tim
 Tiefenbach](https://twitter.com/TimTeaFan). I tweet about random
