@@ -1,12 +1,7 @@
 name: post-tweet
-
 on:
-  push:
-    branches:
-      - main
-# on:
-#  schedule:
-#   - cron:  '0 */6 * * *'
+  schedule:
+    - cron: '0 */4 * * *'
 
 jobs:
   rstatspkgbot-tweet:
