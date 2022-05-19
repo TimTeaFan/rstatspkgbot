@@ -22,7 +22,7 @@ jobs:
           git config user.email github-actions@github.com
           git config user.name github-actions
       - name: Create and post tweet
-        run: R/Rscript create_post_and_tweet.R
+        run: Rscript R/create_post_and_tweet.R
         env:
           TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           TWITTER_CONSUMER_API_SECRET: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
