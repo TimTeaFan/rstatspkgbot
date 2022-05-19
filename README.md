@@ -60,7 +60,7 @@ This workflow is automated via GitHub Actions. The whole project is set
 up as an R package that contains a description file with all
 dependencies.
 
-# Acknowledgements
+## Acknowledgements
 
 When creating this Twitter bot I closely read and followed [this blog
 post](https://oscarbaruffa.com/twitterbot/) by [Oscar
