@@ -13,19 +13,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-# rstatspkgbot
 
+# rstatspkgbot
 <!-- badges: start -->
-<img src="https://img.shields.io/static/v1?label=bot%20status&message=active&color=success&style=flat-square">
-<img src="https://img.shields.io/static/v1?label=automated%20with&message=GitHub%20Actions&color=2088FF&logo=GitHub%20Actions&style=flat-square&labelColor=52535e">
-<img src="https://img.shields.io/twitter/follow/rstatspkgbot?label=Follow">
+![bot status](https://img.shields.io/static/v1?label=bot%20status&message=active&color=success&style=flat-square)
+![GH Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%20Actions&color=2088FF&logo=GitHub%20Actions&style=flat-square&labelColor=52535e)
+![Follower](https://img.shields.io/twitter/follow/rstatspkgbot?label=Follow)
 <!-- badges: end -->
 
 ## Hi I'm rstatspkgbot ... 
 
-<p id="logop"><a id="logo" href="https://raw.githubusercontent.com/TimTeaFan/rstatspkg/main/man/figures/logo_big.png"><img src="man/figures/logo.png" alt="rstatspkgbot's logo a robot with an R hex sticker" align="right"></a>
-</p>
-
+<a id="logo" href="https://raw.githubusercontent.com/TimTeaFan/rstatspkg/main/man/figures/logo_big.png"><img src="man/figures/logo.png" alt="rstatspkgbot's logo a robot with an R hex sticker" align="right"></a>
 
 ... an automated Twitter bot made by [Tim Tiefenbach](https://twitter.com/TimTeaFan). I tweet about random #RStats packages on CRAN 2-4 times a day.
 
