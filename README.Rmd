@@ -41,8 +41,8 @@ The most essential parts are:
 
 For some time I wanted to get acquainted with the Twitter API and the {rtweet} package. I came up with
 several projects and this Twitter bot was one of them. The idea was to create a simple but still helpful
-Twitter bot without spending too much effort on it. Since there are over 18,000 package on CRAN, I thought
-it might be helpful to see some Tweets in my timeline introducing random package I might never have heard 
+Twitter bot without spending too much effort on it. Since there are over 18,000 packages on CRAN, I thought
+it might be helpful to see some Tweets in my timeline introducing random packages I might never have heard 
 of otherwise. Maybe similar Twitter bots exist already, but the whole project was about making
 one myself.
 
@@ -55,7 +55,7 @@ and interact with the Twitter API. The basic workflow is:
 1. read-in the actual list of packages on CRAN
 2. match it (anti-join) with a list of packages already tweeted about
 3. draw a random package out of the remaining ones
-4. create and post a tweet linking the package website on CRAN
+4. create and post a tweet linking the CRAN package website
 5. add the newly tweeted package to the list of already tweeted packages
 
 This workflow is automated via GitHub Actions. The whole project is set up as an R package that 
@@ -77,5 +77,5 @@ believe that this doesn't cost a single cent.
 
 ## Disclaimer
 
-This is just a side project which I built in my free time. It comes with no garuantees whatsover. 
+This is just a side project which I built in my free time. It comes with no guarantees whatsover. 
 If you find a bug, just file an issue (as with any other repo).
