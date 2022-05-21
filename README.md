@@ -5,8 +5,8 @@
 
 <!-- badges: start -->
 
-![bot
-status](https://img.shields.io/static/v1?label=bot%20status&message=active&color=success&style=flat-square)
+![GitHub Workflow
+Status](https://img.shields.io/github/workflow/status/timteafan/rstatspkgbot/post-tweet?label=bot%20status&logo=Github%20Actions&logoColor=white&style=flat-square)
 ![GH
 Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%20Actions&color=2088FF&logo=GitHub%20Actions&style=flat-square&labelColor=52535e)
 ![Follower](https://img.shields.io/twitter/follow/rstatspkgbot?label=Follow)
