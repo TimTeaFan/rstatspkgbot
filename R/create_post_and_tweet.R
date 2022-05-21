@@ -50,7 +50,7 @@ pkg_draw_from <- pkg_tbl_links %>%
 tweet_count <- readRDS("data/tweet_count.rds")
 
 # once every 4 tweets (= once every day)
-if (!as.logical((tweet_count) %% 4)) {
+if (!as.logical(tweet_count %% 4)) {
 
   # get subset of shiny, ggplot, tidy packages
   pkg_sub_set <- pkg_draw_from %>%
