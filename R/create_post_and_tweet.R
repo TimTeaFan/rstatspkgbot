@@ -34,6 +34,11 @@ pkg_tbl_links <- cran_pkg_by_name %>%
 #                                             "correctedAUC", "evir", "WindCurves"))
 # saveRDS(pkgs_already_tweeted, "data/pkgs_already_tweeted.rds")
 
+
+# for manual use: create counts of tweets
+# tweet_count <- 14
+# saveRDS(tweet_count, "data/tweet_count.rds")
+
 # get tbl of already tweeted pkgs
 pkgs_already_tweeted <- readRDS("data/pkgs_already_tweeted.rds")
 
@@ -41,13 +46,31 @@ pkgs_already_tweeted <- readRDS("data/pkgs_already_tweeted.rds")
 pkg_draw_from <- pkg_tbl_links %>%
   anti_join(pkgs_already_tweeted, by = "name")
 
+# get count of tweets
+tweet_count <- readRDS("data/tweet_count.rds")
+
+# once every 4 tweets (= once every day)
+if (!as.logical((tweet_count) %% 4)) {
+
+  # get subset of shiny, ggplot, tidy packages
+  pkg_sub_set <- pkg_draw_from %>%
+    filter(grepl(name, "shiny") | grepl(description, "shiny") |
+           grepl(name, "tidy") | grepl(description, "tidy") |
+           grepl(name, "^gg") | grepl(description, "gplot"))
+
+  # if subset is not empty: make it the tbl to draw from
+  if (nrow(pkg_sub_set) != 0) {
+    pkg_draw_from <- pkg_sub_set
+  }
+}
+
 # draw one random package
 pkg_sample <- pkg_draw_from %>%
   slice_sample(n = 1)
 
 # Adjust size of description so that Tweet fits 280 chars
-adj_description <- if (pkg_sample$char_nr > 271) {
-  delta <- pkg_sample$char_nr - 271
+adj_description <- if (pkg_sample$char_nr > 261) {
+  delta <- pkg_sample$char_nr - 261
   toString(pkg_sample$description, width = pkg_sample$char_nr_desc - delta)
   } else  {
   pkg_sample$description
@@ -56,7 +79,8 @@ adj_description <- if (pkg_sample$char_nr > 271) {
 # create text using emojis
 tweet_text <- paste0("\U0001f4e6", " ", pkg_sample$name, "\n",
                      "\U0001f4dd", " ", adj_description, "\n\n",
-                     "\U0001f517", " ", pkg_sample$link)
+                     "\U0001f517", " ", pkg_sample$link, "\n\n",
+                     "\U0001f916", "#RStats")
 
 # Create a token containing your Twitter keys
 bot_token <- rtweet::create_token(
@@ -76,3 +100,7 @@ post_tweet(status = tweet_text,
 # write name into tibble with already tweeted packages
 upd_pkg_already_tweeted <- bind_rows(pkgs_already_tweeted, pkg_sample[, "name"])
 saveRDS(upd_pkg_already_tweeted, "data/pkgs_already_tweeted.rds")
+
+# adjust tweet count
+new_tweet_count <- tweet_count + 1
+saveRDS(new_tweet_count, "data/tweet_count.rds")
