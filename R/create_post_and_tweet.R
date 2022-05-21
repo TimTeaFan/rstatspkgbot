@@ -54,9 +54,9 @@ if (!as.logical(tweet_count %% 4)) {
 
   # get subset of shiny, ggplot, tidy packages
   pkg_sub_set <- pkg_draw_from %>%
-    filter(grepl(name, "shiny") | grepl(description, "shiny") |
-           grepl(name, "tidy") | grepl(description, "tidy") |
-           grepl(name, "^gg") | grepl(description, "gplot"))
+    filter(grepl("shiny", name) | grepl("shiny", description) |
+           grepl("tidy", name) | grepl("tidy", description) |
+           grepl("^gg", name) | grepl("ggplot", description))
 
   # if subset is not empty: make it the tbl to draw from
   if (nrow(pkg_sub_set) != 0) {
