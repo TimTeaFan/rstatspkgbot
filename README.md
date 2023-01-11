@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 ![GitHub Workflow
-Status](https://img.shields.io/github/workflow/status/timteafan/rstatspkgbot/post-tweet?label=bot%20status&logo=Github%20Actions&logoColor=white&style=flat-square)
+Status](https://img.shields.io/github/actions/workflow/status/timteafan/rstatspkgbot/tweet_rpkg.yaml?branch=main&label=bot%20status&logo=Github%20Actions&logoColor=white&style=flat-square)
 ![GH
 Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%20Actions&color=2088FF&logo=GitHub%20Actions&style=flat-square&labelColor=52535e)
 <a href="https://www.twitter.com/rstatspkgbot/" target="blank"><img src="https://img.shields.io/twitter/follow/rstatspkgbot?label=Followers"></a>
@@ -17,8 +17,9 @@ Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%
 <a id="logo" href="https://raw.githubusercontent.com/TimTeaFan/rstatspkgbot/main/man/figures/logo_big.png"><img src="man/figures/logo.png" alt="rstatspkgbot's logo a robot with an R hex sticker" align="right"></a>
 
 … an automated Twitter bot made by [Tim
-Tiefenbach](https://twitter.com/TimTeaFan). I tweet about random
-\#RStats packages on CRAN 2-4 times a day.
+Tiefenbach](https://twitter.com/TimTeaFan). I tweet mostly about random
+\#RStats packages on CRAN 4 times a day - at least one package a day
+from the tidyverse, shiny or ggplot.
 
 If you want to see my tweets in your feed, follow me on Twitter.
 
@@ -27,10 +28,10 @@ README and browse my code.
 
 The most essential parts are:
 
--   the [R script](/R/create_post_and_tweet.R) that creates and posts
-    the tweets
--   the [YAML script](/.github/workflows/tweet_rpkg.yaml) that automates
-    my workflow using Github Actions
+- the [R script](/R/create_post_and_tweet.R) that creates and posts the
+  tweets
+- the [YAML script](/.github/workflows/tweet_rpkg.yaml) that automates
+  my workflow using Github Actions
 
 ## Idea & History
 
