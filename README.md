@@ -17,8 +17,9 @@ Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%
 <a id="logo" href="https://raw.githubusercontent.com/TimTeaFan/rstatspkgbot/main/man/figures/logo_big.png"><img src="man/figures/logo.png" alt="rstatspkgbot's logo a robot with an R hex sticker" align="right"></a>
 
 … an automated Twitter bot made by [Tim
-Tiefenbach](https://twitter.com/TimTeaFan). I tweet about random
-\#RStats packages on CRAN 2-4 times a day.
+Tiefenbach](https://twitter.com/TimTeaFan). I tweet mostly about random
+\#RStats packages on CRAN 4 times a day - at least one package a day
+from the tidyverse, shiny or ggplot.
 
 If you want to see my tweets in your feed, follow me on Twitter.
 
