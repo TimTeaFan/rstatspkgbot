@@ -61,6 +61,22 @@ if (!as.logical(tweet_count %% 4)) {
   # if subset is not empty: make it the tbl to draw from
   if (nrow(pkg_sub_set) != 0) {
     pkg_draw_from <- pkg_sub_set
+  } else {
+    # if no pkgs left ...
+    # ... reset pkgs_already_tweeted including shiny/tidy/ggplot
+    pkgs_already_tweeted <- pkg_tbl_links %>%
+      semi_join(pkgs_already_tweeted, by = "name") %>%
+      filter(!(grepl("shiny", name) | grepl("shiny", description) |
+               grepl("tidy", name) | grepl("tidy", description) |
+               grepl("^gg", name) | grepl("ggplot", description))) %>%
+      select(name)
+
+    # filter on shiny/tidy/ggplot
+    pkg_draw_from <- pkg_tbl_links %>%
+      anti_join(pkgs_already_tweeted, by = "name") %>%
+      filter(grepl("shiny", name) | grepl("shiny", description) |
+               grepl("tidy", name) | grepl("tidy", description) |
+               grepl("^gg", name) | grepl("ggplot", description))
   }
 }
 
@@ -82,7 +98,7 @@ tweet_text <- paste0("\U0001f4e6", " ", pkg_sample$name, "\n",
                      "\U0001f517", " ", pkg_sample$link, "\n\n",
                      "\U0001f916", "#RStats")
 
-# Create a token containing your Twitter keys
+# Create a token containing Twitter keys
 bot_token <- rtweet::create_token(
   app = "rstatspkgbot",
   # the name of the Twitter app
