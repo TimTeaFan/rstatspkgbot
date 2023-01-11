@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 ![GitHub Workflow
-Status](https://img.shields.io/github/workflow/status/timteafan/rstatspkgbot/post-tweet?label=bot%20status&logo=Github%20Actions&logoColor=white&style=flat-square)
+Status](https://img.shields.io/github/actions/workflow/status/timteafan/rstatspkgbot/tweet_rpkg.yaml?label=bot%20status&logo=Github%20Actions&logoColor=white&style=flat-square)
 ![GH
 Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%20Actions&color=2088FF&logo=GitHub%20Actions&style=flat-square&labelColor=52535e)
 <a href="https://www.twitter.com/rstatspkgbot/" target="blank"><img src="https://img.shields.io/twitter/follow/rstatspkgbot?label=Followers"></a>
@@ -27,10 +27,10 @@ README and browse my code.
 
 The most essential parts are:
 
--   the [R script](/R/create_post_and_tweet.R) that creates and posts
-    the tweets
--   the [YAML script](/.github/workflows/tweet_rpkg.yaml) that automates
-    my workflow using Github Actions
+- the [R script](/R/create_post_and_tweet.R) that creates and posts the
+  tweets
+- the [YAML script](/.github/workflows/tweet_rpkg.yaml) that automates
+  my workflow using Github Actions
 
 ## Idea & History
 
