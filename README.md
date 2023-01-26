@@ -9,7 +9,8 @@
 Status](https://img.shields.io/github/actions/workflow/status/timteafan/rstatspkgbot/tweet_rpkg.yaml?branch=main&label=bot%20status&logo=Github%20Actions&logoColor=white&style=flat-square)
 ![GH
 Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%20Actions&color=2088FF&logo=GitHub%20Actions&style=flat-square&labelColor=52535e)
-<a href="https://www.twitter.com/rstatspkgbot/" target="blank"><img src="https://img.shields.io/twitter/follow/rstatspkgbot?label=Followers"></a>
+[<img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/TimTeaFan/rstatspkgbot/run_bot/data/followers&label=Twitter&query=$.data.followers&style=social&logo=Twitter">](https://twitter.com/timteafan/status/1511034067344572422?s=21)
+
 <!-- badges: end -->
 
 ## Hi I’m rstatspkgbot …
