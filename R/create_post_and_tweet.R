@@ -1,8 +1,10 @@
 library(rvest)
+library(httr2)
 library(xml2)
 library(dplyr)
 library(tibble)
 library(rtweet)
+library(jsonlite)
 
 # read-in CRAN package list
 cran_url <- "https://cran.r-project.org/web/packages/available_packages_by_name.html"
@@ -120,3 +122,15 @@ saveRDS(upd_pkg_already_tweeted, "data/pkgs_already_tweeted.rds")
 # adjust tweet count
 new_tweet_count <- tweet_count + 1
 saveRDS(new_tweet_count, "data/tweet_count.rds")
+
+# Finally: get number of Twitter followers
+twit_user_req <- request("https://api.twitter.com/2/users/by/username/rstatspkgbot?user.fields=public_metrics") %>%
+  req_auth_bearer_token(Sys.getenv("TWITTER_BEARER_TOKEN"))
+twit_user_info <- twit_user_req %>% req_perform()
+twit_user_info_ls <- twit_user_info %>% resp_body_json()
+
+no_of_followers <- twit_user_info_ls$data$public_metrics$followers_count
+
+# write latest follower data as json
+no_followers_ls <- list(data = list(followers = no_of_followers))
+jsonlite::write_json(no_followers_ls, "data/followers")
