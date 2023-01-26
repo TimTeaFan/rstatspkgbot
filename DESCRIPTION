@@ -1,6 +1,6 @@
 Package: rstatspkgbot
 Title: Twitter bot that tweets about random R packages on CRAN
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Tim",
            family = "Tiefenbach",
@@ -18,4 +18,6 @@ Imports:
     xml2 (>= 1.3.1),
     dplyr (>= 1.0.6),
     tibble (>= 3.1.6),
-    rtweet (== 0.7.0)
+    rtweet (== 0.7.0),
+    httr2 (>= 0.2.2),
+    jsonlite (>= 1.8.4)
