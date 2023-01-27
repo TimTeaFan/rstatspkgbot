@@ -102,7 +102,6 @@ tweet_text <- paste0("\U0001f4e6", " ", pkg_sample$name, "\n",
 
 # Create a token containing Twitter keys
 bot_token <- rtweet::rtweet_bot(
-  # the name of the Twitter app
   api_key = Sys.getenv("TWITTER_CONSUMER_API_KEY"),
   api_secret = Sys.getenv("TWITTER_CONSUMER_API_SECRET"),
   access_token = Sys.getenv("TWITTER_ACCESS_TOKEN"),
