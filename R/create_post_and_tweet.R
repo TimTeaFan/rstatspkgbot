@@ -101,14 +101,13 @@ tweet_text <- paste0("\U0001f4e6", " ", pkg_sample$name, "\n",
                      "\U0001f916", "#RStats")
 
 # Create a token containing Twitter keys
-bot_token <- rtweet::create_token(
+bot_token <- rtweet::rtweet_bot(
   app = "rstatspkgbot",
   # the name of the Twitter app
-  consumer_key = Sys.getenv("TWITTER_CONSUMER_API_KEY"),
-  consumer_secret = Sys.getenv("TWITTER_CONSUMER_API_SECRET"),
+  api_key = Sys.getenv("TWITTER_CONSUMER_API_KEY"),
+  api_secret = Sys.getenv("TWITTER_CONSUMER_API_SECRET"),
   access_token = Sys.getenv("TWITTER_ACCESS_TOKEN"),
-  access_secret = Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET"),
-  set_renv = FALSE
+  access_secret = Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
 
 # post tweet
