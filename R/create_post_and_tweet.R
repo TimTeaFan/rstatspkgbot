@@ -121,12 +121,8 @@ new_tweet_count <- tweet_count + 1
 saveRDS(new_tweet_count, "data/tweet_count.rds")
 
 # Finally: get number of Twitter followers
-twit_user_req <- request("https://api.twitter.com/2/users/by/username/rstatspkgbot?user.fields=public_metrics") %>%
-  req_auth_bearer_token(Sys.getenv("TWITTER_BEARER_TOKEN"))
-twit_user_info <- twit_user_req %>% req_perform()
-twit_user_info_ls <- twit_user_info %>% resp_body_json()
-
-no_of_followers <- twit_user_info_ls$data$public_metrics$followers_count
+rstatspkgbot_info <- lookup_users("rstatspkgbot", token = bot_token)
+no_of_followers <- rstatspkgbot_info[["followers_count"]]
 
 # write latest follower data as json
 no_followers_ls <- list(data = list(followers = no_of_followers))
