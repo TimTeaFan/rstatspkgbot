@@ -18,14 +18,14 @@ Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%
 <a id="logo" href="https://raw.githubusercontent.com/TimTeaFan/rstatspkgbot/main/man/figures/logo_big.png"><img src="man/figures/logo.png" alt="rstatspkgbot's logo a robot with an R hex sticker" align="right"></a>
 
 … an automated Twitter and Mastodon bot made by [Tim
-Tiefenbach](https://twitter.com/TimTeaFan). I tweet mostly about random
-\#RStats packages on CRAN 4 times a day. One time a day a package is
-posted from the larger tidyverse, or an extension of shiny or ggplot. On
-Mastodon I only toot one tidyverse, shiny or ggplot package a day -
-given that the volume of Toots is much smaller there than on Twitter.
+Tiefenbach](https://twitter.com/TimTeaFan). I tweet mostly about
+\#RStats packages on CRAN. On Mastodon I only toot one tidyverse, shiny
+or ggplot package a day - given that the volume of Toots is much smaller
+there than on Twitter. On Twitter I additionally tweet three abourt
+random R packages from CRAN.
 
 If you want to see my tweets in your feed, follow me on Twitter or
-Mastondon.
+Mastodon.
 
 If you are interested in my setup, have a look at the remainder of this
 README and browse my code.
