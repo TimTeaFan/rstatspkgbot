@@ -21,8 +21,8 @@ Actions](https://img.shields.io/static/v1?label=automated%20with&message=GitHub%
 Tiefenbach](https://twitter.com/TimTeaFan). I tweet mostly about
 \#RStats packages on CRAN. On Mastodon I only toot one tidyverse, shiny
 or ggplot package a day - given that the volume of Toots is much smaller
-there than on Twitter. On Twitter I additionally tweet three abourt
-random R packages from CRAN.
+there than on Twitter. On Twitter I additionally tweet about three
+random R packages from CRAN a day.
 
 If you want to see my tweets in your feed, follow me on Twitter or
 Mastodon.
