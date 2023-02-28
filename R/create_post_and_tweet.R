@@ -4,6 +4,7 @@ library(xml2)
 library(dplyr)
 library(tibble)
 library(rtweet)
+library(rtoot)
 library(jsonlite)
 
 # read-in CRAN package list
@@ -52,7 +53,9 @@ pkg_draw_from <- pkg_tbl_links %>%
 tweet_count <- readRDS("data/tweet_count.rds")
 
 # once every 4 tweets (= once every day)
-if (!as.logical(tweet_count %% 4)) {
+every_forth_post <- !as.logical(tweet_count %% 4)
+
+if (every_forth_post) {
 
   # get subset of shiny, ggplot, tidy packages
   pkg_sub_set <- pkg_draw_from %>%
@@ -87,16 +90,16 @@ pkg_sample <- pkg_draw_from %>%
   slice_sample(n = 1)
 
 # Adjust size of description so that Tweet fits 280 chars
-adj_description <- if (pkg_sample$char_nr > 261) {
+adj_tweet_description <- if (pkg_sample$char_nr > 261) {
   delta <- pkg_sample$char_nr - 261
   toString(pkg_sample$description, width = pkg_sample$char_nr_desc - delta)
   } else  {
   pkg_sample$description
-  }
+}
 
 # create text using emojis
 tweet_text <- paste0("\U0001f4e6", " ", pkg_sample$name, "\n",
-                     "\U0001f4dd", " ", adj_description, "\n\n",
+                     "\U0001f4dd", " ", adj_tweet_description, "\n\n",
                      "\U0001f517", " ", pkg_sample$link, "\n\n",
                      "\U0001f916", "#RStats")
 
@@ -108,9 +111,41 @@ bot_token <- rtweet::rtweet_bot(
   access_secret = Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
 
+possibly_post_tweet <- purrr::possibly(rtweet::post_tweet)
+
 # post tweet
-post_tweet(status = tweet_text,
-           token = bot_token)
+possibly_post_tweet(status = tweet_text,
+                    token = bot_token)
+
+if (every_forth_post) {
+  # adapted from: https://www.rostrum.blog/2023/02/09/londonmapbotstodon/
+  mastodon_token <- structure(
+    list(
+      bearer   = Sys.getenv("RTOOT_DEFAULT_TOKEN"),
+      type     = "user",
+      instance = "botsin.space"
+    ),
+    class = "rtoot_bearer"
+  )
+
+  adj_toot_description <- if (pkg_sample$char_nr > 481) {
+    delta <- pkg_sample$char_nr - 481
+    toString(pkg_sample$description, width = pkg_sample$char_nr_desc - delta)
+  } else {
+    pkg_sample$description
+  }
+
+  toot_text <- paste0("\U0001f4e6", " ", pkg_sample$name, "\n",
+                       "\U0001f4dd", " ", adj_toot_description, "\n\n",
+                       "\U0001f517", " ", pkg_sample$link, "\n\n",
+                       "\U0001f916", "#RStats")
+
+  rtoot::post_toot(
+    status   = toot_text,
+    token    = mastodon_token
+  )
+}
+
 
 # write name into tibble with already tweeted packages
 upd_pkg_already_tweeted <- bind_rows(pkgs_already_tweeted, pkg_sample[, "name"])
