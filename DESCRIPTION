@@ -21,4 +21,5 @@ Imports:
     rtweet (> 1.0.2),
     httr2 (>= 0.2.2),
     jsonlite (>= 1.8.4),
-    rtoot(>= 0.3.0)
+    rtoot (>= 0.3.0),
+    purrr (>= 1.0.0)
