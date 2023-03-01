@@ -117,7 +117,7 @@ possibly_post_tweet <- purrr::possibly(rtweet::post_tweet)
 possibly_post_tweet(status = tweet_text,
                     token = bot_token)
 
-if (every_forth_post) {
+# if (every_forth_post) {
   # adapted from: https://www.rostrum.blog/2023/02/09/londonmapbotstodon/
   mastodon_token <- structure(
     list(
@@ -144,7 +144,7 @@ if (every_forth_post) {
     status   = toot_text,
     token    = mastodon_token
   )
-}
+# }
 
 
 # write name into tibble with already tweeted packages
