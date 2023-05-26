@@ -156,9 +156,9 @@ new_tweet_count <- tweet_count + 1
 saveRDS(new_tweet_count, "data/tweet_count.rds")
 
 # Finally: get number of Twitter followers
-rstatspkgbot_info <- lookup_users("rstatspkgbot", token = bot_token)
-no_of_followers <- rstatspkgbot_info[["followers_count"]]
+# rstatspkgbot_info <- lookup_users("rstatspkgbot", token = bot_token)
+# no_of_followers <- rstatspkgbot_info[["followers_count"]]
 
 # write latest follower data as json
-no_followers_ls <- list(data = list(followers = no_of_followers))
-jsonlite::write_json(no_followers_ls, "data/followers")
+# no_followers_ls <- list(data = list(followers = no_of_followers))
+# jsonlite::write_json(no_followers_ls, "data/followers")
